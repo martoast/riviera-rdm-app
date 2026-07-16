@@ -1,0 +1,58 @@
+{{-- ============================== PRECIOS DE PREVENTA ============================== --}}
+<section id="precios" class="bg-ocean-950 py-24 text-sand-50 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <div class="reveal-group max-w-2xl">
+            <p class="eyebrow text-gold-300">Precios de preventa</p>
+            <h2 class="display mt-5 text-4xl font-light sm:text-5xl">Consulta disponibilidad actualizada por <span class="accent-italic">modelo</span></h2>
+        </div>
+
+        <div class="mt-14 grid gap-8 md:grid-cols-2">
+            @foreach ([
+                ['n' => 'Murano', 'a' => 6.7, 'b' => 7.2, 'u' => 'MDP'],
+                ['n' => 'Mazzorbo', 'a' => 6.2, 'b' => 6.4, 'u' => 'MDP'],
+            ] as $card)
+                <div class="reveal rounded-3xl border border-sand-50/15 bg-sand-50/[0.04] p-10 text-center backdrop-blur-sm">
+                    <p class="eyebrow text-[0.6rem] text-gold-300">Modelo {{ $card['n'] }}</p>
+                    <p class="mt-5 text-sm text-sand-200/60">Desde</p>
+                    <p class="display mt-1 text-5xl font-light tabular-nums lg:text-6xl">$<span x-data="countUp({{ $card['a'] }})" x-text="display">{{ number_format($card['a'], 1) }}</span> <span class="text-gold-300">–</span> $<span x-data="countUp({{ $card['b'] }})" x-text="display">{{ number_format($card['b'], 1) }}</span></p>
+                    <p class="eyebrow mt-2 text-[0.6rem] text-sand-200/60">{{ $card['u'] }}</p>
+                </div>
+            @endforeach
+        </div>
+
+        {{-- Financiamiento disponible (MX / USA) --}}
+        <div class="reveal mx-auto mt-12 flex max-w-md flex-col items-center rounded-2xl border border-gold-300/25 bg-sand-50/[0.04] px-8 py-7 text-center backdrop-blur-sm">
+            <span class="mb-5 inline-flex items-center gap-2 rounded-full bg-gold-500/15 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold-300">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                Entrega inmediata
+            </span>
+            <span class="flex h-12 w-12 items-center justify-center rounded-full border border-gold-300/40 text-gold-300">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+                    <path d="M12 18V6"/>
+                </svg>
+            </span>
+            <p class="eyebrow mt-4 text-[0.7rem] text-sand-50">Financiamiento disponible</p>
+            <p class="mt-2 text-sm leading-relaxed text-sand-200/70">Para compradores de México y Estados Unidos.</p>
+            <div class="mt-5 flex items-center gap-5">
+                {{-- México --}}
+                <span class="flex items-center gap-2 text-[0.7rem] font-medium text-sand-100/85">
+                    <img src="{{ asset('images/flag-mx.svg') }}" alt="Bandera de México" class="h-5 w-auto rounded-[3px] ring-1 ring-sand-50/15">
+                    México
+                </span>
+                <span class="h-6 w-px bg-sand-50/20"></span>
+                {{-- Estados Unidos --}}
+                <span class="flex items-center gap-2 text-[0.7rem] font-medium text-sand-100/85">
+                    <img src="{{ asset('images/flag-us.svg') }}" alt="Bandera de Estados Unidos" class="h-5 w-auto rounded-[3px] ring-1 ring-sand-50/15">
+                    Estados Unidos
+                </span>
+            </div>
+        </div>
+
+        <p class="reveal mt-8 text-center text-xs text-sand-200/45">Precios y disponibilidad sujetos a cambio sin previo aviso.</p>
+        <div class="reveal mt-8 text-center">
+            <a href="#contacto" class="eyebrow inline-flex items-center justify-center rounded-full bg-gold-500 px-8 py-4 text-[0.7rem] text-sand-50 transition-colors hover:bg-gold-400">Solicitar disponibilidad actualizada</a>
+        </div>
+    </div>
+</section>

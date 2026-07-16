@@ -1,0 +1,18 @@
+@extends('layouts.app')
+
+@section('content')
+    @include('partials.hero')
+    @include('partials.proyecto')
+    @include('partials.video')
+    @include('partials.casa-club')
+    @include('partials.modelos')
+    @include('partials.aspiracional')
+    @include('partials.precios')
+    @include('partials.zona')
+    @include('partials.ubicacion')
+    @include('partials.interiores')
+    @include('partials.exteriores')
+    @include('partials.asesoria')
+    @include('partials.brokers')
+    @include('partials.cta-final')
+@endsection
